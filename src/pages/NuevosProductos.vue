@@ -3,69 +3,46 @@
 
     <h2>Agregar Producto</h2>
 
-    <form @submit.prevent="agregarProducto">
+    <form @submit.prevent="store.agregarProducto">
 
       <label>Nombre del producto</label>
       <input
         type="text"
-        v-model="producto.nombre"
+        v-model="store.producto.nombre"
         required
       />
 
       <label>Precio</label>
       <input
         type="number"
-        v-model="producto.precio"
+        v-model="store.producto.precio"
         required
       />
 
       <label>Cantidad</label>
       <input
         type="number"
-        v-model="producto.cantidad"
+        v-model="store.producto.cantidad"
         required
       />
 
       <button type="submit">Agregar</button>
 
     </form>
-
-    <h3>Lista de productos</h3>
-
-    <ul>
-      <li v-for="(item, index) in productos" :key="index">
-        {{ item.nombre }} - ${{ item.precio }} - Cantidad: {{ item.cantidad }}
-      </li>
-    </ul>
-
   </div>
 </template>
 
 <script>
+import { useProductosStore } from "../stores/productos"
+
 export default {
-  name: "ProductoForm",
 
-  data() {
-    return {
-      producto: {
-        nombre: "",
-        precio: "",
-        cantidad: ""
-      },
-      productos: []
-    }
-  },
+  setup(){
+    const store = useProductosStore()
 
-  methods: {
-    agregarProducto() {
-
-      this.productos.push({ ...this.producto })
-
-      this.producto.nombre = ""
-      this.producto.precio = ""
-      this.producto.cantidad = ""
-    }
+    return { store }
   }
+
 }
 </script>
 

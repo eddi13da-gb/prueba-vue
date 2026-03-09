@@ -3,23 +3,11 @@ export default {
   name: "Catalogo",
   data() {
     return {
-      productos: [
-        {
-          id: 1,
-          nombre: "Cuaderno",
-          precio: "$5.000",
-          imagen: ""
-        },
-        {
-          id: 3,
-          nombre: "Cartuchera",
-          precio: "$8.000",
-          imagen: ""
-        }
-      ]
+      productos: []
     }
   }
-}</script>
+}
+</script>
 <template>
   <header class="header">
       <h1>CATALOGO</h1>
