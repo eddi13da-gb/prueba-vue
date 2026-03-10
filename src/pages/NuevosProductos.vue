@@ -1,4 +1,8 @@
 <template>
+   <header class="header">
+    <h1>Agregar productos</h1>
+  </header>
+
   <div class="contenedor">
 
     <h2>Agregar Producto</h2>
